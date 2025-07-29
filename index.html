@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicol & Ryan's Wedding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Letter Animation Container -->
+    <div id="letter-container" class="letter-container">
+        <!-- Confetti Container -->
+        <div class="confetti-container" id="confetti-container"></div>
+        
+        <div class="envelope-wrapper">
+            <!-- Professional Envelope -->
+            <div class="envelope">
+                <!-- Envelope Front -->
+                <div class="envelope-front">
+                    <div class="envelope-content">
+                        <div class="envelope-seal">💌</div>
+                        <div class="envelope-address">
+                            <div class="address-line">To: [Recipient Name]</div>
+                            <div class="address-line">From: Nicol & Ryan</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Envelope Back (V-Opening Side) -->
+                <div class="envelope-back">
+                    <div class="v-opening">
+                        <div class="v-line"></div>
+                        <div class="v-opening-text">Tap to open</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Click to Open Prompt -->
+        <div class="open-prompt">
+            <div class="prompt-text">Tap to open</div>
+            <div class="prompt-arrow">↓</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Mobile Menu Button -->
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="menu-header">
+                <h3>Menu</h3>
+            </div>
+            <div class="menu-content">
+                <div class="menu-section">
+                    <h4>Quick Links</h4>
+                    <a href="#invitation" class="menu-link">Invitation</a>
+                    <a href="#rsvp" class="menu-link">RSVP</a>
+                    <a href="#venue" class="menu-link">Venue</a>
+                </div>
+                <div class="menu-section">
+                    <h4>Q&A / FAQ</h4>
+                    <button class="faq-toggle" data-faq="plus-one">Can I bring a plus one?</button>
+                    <button class="faq-toggle" data-faq="kids">Are kids allowed?</button>
+                    <button class="faq-toggle" data-faq="kids-invited">Are kids invited?</button>
+                    <button class="faq-toggle" data-faq="guest">Can I bring a guest/date?</button>
+                    <button class="faq-toggle" data-faq="rsvp-time">What if I don't RSVP in time?</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Modal -->
+        <div class="faq-modal" id="faq-modal">
+            <div class="faq-modal-content">
+                <div class="faq-header">
+                    <h3 id="faq-title">FAQ</h3>
+                    <button class="faq-close" id="faq-close">&times;</button>
+                </div>
+                <div class="faq-body" id="faq-body">
+                    <!-- FAQ content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="couple-names">Nicol & Ryan</h1>
+                <p class="wedding-date">September 15, 2024</p>
+                <p class="wedding-time">4:00 PM</p>
+            </div>
+        </header>
+
+        <!-- Invitation Section -->
+        <section class="invitation-section" id="invitation">
+            <div class="invitation-card">
+                <div class="invitation-header">
+                    <h2>You're Invited</h2>
+                    <p class="invitation-text">
+                        Together with their families,<br>
+                        Nicol Tanyaradzwa Kondo<br>
+                        &<br>
+                        Ryan Kundai Chivanga<br>
+                        request the pleasure of your company<br>
+                        as they celebrate their wedding
+                    </p>
+                </div>
+
+                <div class="event-details">
+                    <div class="detail-item">
+                        <h3>When</h3>
+                        <p>Saturday, September 15, 2024</p>
+                        <p>4:00 PM - 11:00 PM</p>
+                    </div>
+
+                    <div class="detail-item" id="venue">
+                        <h3>Where</h3>
+                        <p>Balmoral Gardens</p>
+                        <p>Boundary Road, Balmoral Estates</p>
+                        <p>De Deur 1884</p>
+                    </div>
+
+                    <div class="detail-item">
+                        <h3>Dress Code</h3>
+                        <p>Semi-Formal</p>
+                        <p>Brown, champagne, and cream tones encouraged</p>
+                    </div>
+                </div>
+
+                <div class="rsvp-section" id="rsvp">
+                    <h3>RSVP</h3>
+                    <p>Please respond by August 15, 2024</p>
+                    <div class="rsvp-buttons">
+                        <button class="rsvp-btn attending">I'll Be There</button>
+                        <button class="rsvp-btn not-attending">Regretfully Decline</button>
+                    </div>
+                </div>
+
+                <div class="additional-info">
+                    <p>Dinner and dancing to follow</p>
+                    <p>Children welcome</p>
+                    <p>Parking available on-site</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>We can't wait to celebrate with you!</p>
+            <p>Questions? Contact us at nicol.ryan@email.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
