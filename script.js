@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Close menu
         document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && !faqModal.contains(e.target)) {
                 mobileMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
             }
@@ -259,9 +259,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     faqBody.innerHTML = faqData.content;
                     faqModal.classList.add('active');
                     
-                    // Close mobile menu when opening FAQ
-                    mobileMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
+                    // Keep mobile menu open - don't close it
+                    // mobileMenu.classList.remove('active');
+                    // menuToggle.classList.remove('active');
                 }
             });
         });
@@ -275,6 +275,8 @@ document.addEventListener('DOMContentLoaded', function() {
         faqModal.addEventListener('click', function(e) {
             if (e.target === faqModal) {
                 faqModal.classList.remove('active');
+                // Prevent this click from bubbling up to the menu close handler
+                e.stopPropagation();
             }
         });
         
@@ -287,38 +289,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // RSVP Button Functionality
-    rsvpButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const isAttending = this.classList.contains('attending');
-            const response = isAttending ? 'attending' : 'not attending';
-            
-            // Visual feedback
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-            
-            // Show confirmation message
-            showRSVPConfirmation(response);
-        });
-    });
-    
-    function showRSVPConfirmation(response) {
-        // Create confirmation message
-        const message = response === 'attending' 
-            ? "Thank you! We're so excited to celebrate with you! 🎉"
-            : "We understand and will miss you. Thank you for letting us know.";
+    function initRSVPButtons() {
+        const rsvpButtons = document.querySelectorAll('.rsvp-btn');
         
-        // Create modal overlay
+        rsvpButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Redirect to RSVP form
+                const formWindow = window.open('https://docs.google.com/forms/d/e/1FAIpQLSczpSE0gj8uIeMVaw0e7NgGQGJanEbqRmxDIFE0TT3Oc8P-0A/viewform?usp=header', '_blank');
+                
+                // Check if redirect was successful and show popup
+                if (formWindow) {
+                    // Show success popup after redirect
+                    setTimeout(() => {
+                        showRedirectSuccessPopup();
+                    }, 1000);
+                }
+            });
+        });
+    }
+    
+    // Show popup after successful redirect
+    function showRedirectSuccessPopup() {
         const modal = document.createElement('div');
-        modal.className = 'rsvp-modal';
+        modal.className = 'redirect-success-modal';
         modal.innerHTML = `
-            <div class="rsvp-modal-content">
-                <h3>${response === 'attending' ? '🎉 Thank You! 🎉' : 'Thank You'}</h3>
-                <p>${message}</p>
-                <button class="modal-close-btn">Close</button>
+            <div class="redirect-success-content">
+                <h3>🎉 RSVP Form Opened!</h3>
+                <p>Thank you for responding to our invitation!</p>
+                <p>Please complete the form in the new tab that opened.</p>
+                <button class="modal-close-btn">Got it!</button>
             </div>
         `;
         
@@ -338,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: opacity 0.3s ease;
         `;
         
-        const modalContent = modal.querySelector('.rsvp-modal-content');
+        const modalContent = modal.querySelector('.redirect-success-content');
         modalContent.style.cssText = `
             background: #faf8f5;
             padding: 2rem;
@@ -353,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const closeBtn = modal.querySelector('.modal-close-btn');
         closeBtn.style.cssText = `
-            background: #d2691e;
+            background: #8b4513;
             color: #f5f5dc;
             border: none;
             padding: 0.8rem 1.5rem;
@@ -463,6 +470,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile menu and FAQ functionality
     initMobileMenu();
     initFAQModal();
+    initRSVPButtons();
 });
 
 // Add some utility functions for easy customization
