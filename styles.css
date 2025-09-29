@@ -606,7 +606,112 @@ body {
     font-weight: 400;
 }
 
-/* RSVP Section */
+/* Color Palette */
+.color-palette {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
+}
+
+.palette-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.palette-image:hover {
+    transform: scale(1.02);
+}
+
+/* Banking Section */
+.banking-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(210, 105, 30, 0.08) 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.banking-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d2691e, transparent);
+}
+
+.banking-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #8b4513;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.banking-section > p {
+    font-size: 1rem;
+    color: #2c1810;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banking-details {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(139, 69, 19, 0.15);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.banking-details h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #8b4513;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.bank-info {
+    text-align: left;
+}
+
+.bank-info p {
+    font-size: 1rem;
+    color: #2c1810;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.bank-info p:last-child {
+    margin-bottom: 0;
+}
+
+.bank-info strong {
+    color: #8b4513;
+    font-weight: 600;
+}
+
+/* RSVP Section (keeping for reference but not used) */
 .rsvp-section {
     text-align: center;
     margin-bottom: 2rem;
@@ -731,6 +836,20 @@ body {
         font-size: 1.1rem;
     }
     
+    .color-palette {
+        margin: 1.5rem 0;
+        padding: 1.2rem;
+    }
+    
+    .banking-details {
+        padding: 1.2rem;
+        margin: 0 1rem;
+    }
+    
+    .banking-section > p {
+        padding: 0 1rem;
+    }
+    
     .rsvp-buttons {
         flex-direction: column;
         align-items: center;
@@ -804,6 +923,24 @@ body {
     
     .detail-item p {
         font-size: 1rem;
+    }
+    
+    .color-palette {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .banking-details {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    .banking-details h4 {
+        font-size: 1.2rem;
+    }
+    
+    .bank-info p {
+        font-size: 0.95rem;
     }
 
     .mobile-menu {
