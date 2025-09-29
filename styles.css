@@ -711,6 +711,12 @@ body {
     font-weight: 600;
 }
 
+.account-name {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.6rem !important;
+}
+
 /* RSVP Section (keeping for reference but not used) */
 .rsvp-section {
     text-align: center;
@@ -780,6 +786,7 @@ body {
     background: rgba(139, 69, 19, 0.03);
     border-radius: 10px;
     border-top: 1px solid rgba(139, 69, 19, 0.1);
+    margin-top: 2rem;
 }
 
 .additional-info p {
@@ -841,13 +848,30 @@ body {
         padding: 1.2rem;
     }
     
+    .banking-section {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
+    }
+    
     .banking-details {
-        padding: 1.2rem;
-        margin: 0 1rem;
+        padding: 1rem;
+        margin: 0;
+        max-width: 100%;
     }
     
     .banking-section > p {
-        padding: 0 1rem;
+        padding: 0;
+        font-size: 0.95rem;
+    }
+    
+    .color-palette {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .palette-image {
+        max-width: 100%;
+        width: 100%;
     }
     
     .rsvp-buttons {
@@ -930,17 +954,33 @@ body {
         padding: 1rem;
     }
     
-    .banking-details {
+    .banking-section {
         padding: 1rem;
-        margin: 0 0.5rem;
+        margin: 0 0.25rem;
+    }
+    
+    .banking-details {
+        padding: 0.8rem;
+        margin: 0;
     }
     
     .banking-details h4 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .bank-info p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        word-break: break-all;
+    }
+    
+    .color-palette {
+        margin: 0.8rem 0;
+        padding: 0.8rem;
+    }
+    
+    .palette-image {
+        max-width: 100%;
+        width: 100%;
     }
 
     .mobile-menu {
